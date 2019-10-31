@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    div{
+        height:2000px;
+    }
+</style>
+<body>
+<div>
+    <button id="btn">btn</button>
+</div>
+
+<script>
+    
+    var btn =  document.querySelector("#btn");
+    
+    var throttle = function (fun,delay) {
+        var prev = Date.now();//这里第一次点击的时候prev和now之间的时间间隔太短了
+        //故不会触发，将他等于0就可以触发，因为后面获取的时间是一个足够大的数值
+        return function () {
+            var now = Date.now();
+            
+            console.log(now-prev);
+            if(now-prev>=delay){
+                console.log(arguments);//这里包括了event事件
+                fun.apply(this,arguments);
+                //dom事件的回调函数有event
+                //将event事件传给fun函数
+                prev = Date.now();
+                console.log(this);//dom事件的回调函数的this指向dom
+            }
+
+        }
+    };
+    //这里的throttle就是第一个参数fn，这个fn是自调用故这个this指向window
+    //为了将this的指向改成dom
+    btn.onclick = throttle (function () {
+        console.log("滚轮事件触发了");
+        console.log(this);
+
+    },2000);
+    
+    document.onscroll = throttle (function (e) {
+        console.log(e);//这个event事件是回调函数那里的
+        console.log("滚轮事件触发了");
+        console.log(this);
+    },500)
+
+
+</script>
+</body>
+</html>

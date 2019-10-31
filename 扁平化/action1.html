@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr = [1, [2, [3, [4, 5]]], 6];
+
+    let str = JSON.stringify(arr);
+    str = str.replace(/(\[|\])/g, '');
+
+    str = '[' + str + ']';
+    const newArr = JSON.parse(str);
+
+    console.log(newArr);//[1, 2, 3, 4, 5, 6]
+
+    
+
+    /*const arr2 = str.replace(/(\[|\])/g, '').split(',');*/
+    
+
+</script>
+</body>
+</html>

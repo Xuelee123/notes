@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var arr = [1, 2, 3, 4];
+
+    var handler = function (newArr, x) {
+        newArr.push(x + 1);
+        console.log(newArr);
+        console.log(x);
+        return newArr;
+    };
+
+    var newarr = arr.reduce(handler, []);//这里的[]就是newArr
+
+    console.log(newarr);
+    // [2, 3, 4, 5]
+
+
+    var arr2 = [1, 2, 3, 4];
+
+    var sum = function (a, b) {
+        console.log(a, b);
+        return a + b;
+    };
+
+    var arr3=arr2.reduce(sum,0); // => 10
+    // 0 1
+    // 1 2
+    // 3 3
+    // 6 4
+    console.log(arr3);//10
+</script>
+</body>
+</html>

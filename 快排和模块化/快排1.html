@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var Sort=function(arr){
+        for(var i=0;i<arr.length-1;i++){
+            //注意这里的i<arr.length-1和j<=arr.length-1不同
+            for(var j=i+1;j<=arr.length-1;j++){
+                if(arr[i]>arr[j]){/*如果前面的数据比后面的大就交换位置*/
+                    var list=arr[i];
+                    arr[i]=arr[j];
+                    arr[j]=list;
+                }
+            }
+        }
+        return arr;
+    };
+    console.log(Sort([10, 10, 1, 2, 4, 6, 7, 89, 7, 4]));
+</script>
+</body>
+</html>

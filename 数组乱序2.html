@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var arr = [1,2,3,4,5,6];
+
+
+    for (var i = arr.length-1; i > 0 ; i--) {
+        var randomIndex = Math.floor(Math.random()*(i+1));
+        var itemAtIndex = arr[randomIndex];//任意下标对应的任意值
+
+        arr[randomIndex] = arr[i];//将任意下标的值改成了arr[i]
+        arr[i] = itemAtIndex;//将arr[i]的任意值改成了==》任意下标对应的任意值
+    }
+
+    console.log(arr);
+
+</script>
+</body>
+</html>

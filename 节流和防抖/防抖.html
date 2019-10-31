@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            height:2000px;
+        }
+    </style>
+</head>
+<body>
+<script>
+    function debounce(fn,time) {
+        let timer = null;
+        return function (e) {
+            clearTimeout(timer);
+            timer =setTimeout(()=>{
+                fn.apply(this,arguments)
+            },time)
+        }
+    }
+    //onscroll事件绑定的其实是return出来的回调函数
+    document.onscroll = debounce(function (e) {
+        console.log("防抖函数");
+        console.log(e);
+        console.log(this);
+    },1500)
+</script>
+</body>
+</html>

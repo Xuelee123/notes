@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function checkType(target) {
+        return Object.prototype.toString.call(target).slice(8,-1);
+
+    }
+    function deepClone(target) {
+        let result = null;
+        const type = checkType(target);
+        if(type==="Object"){
+            result = {};
+        }else if(type==="Array"){
+            result = [];
+        }else{
+            return target
+        }
+
+        for(let key in  target){
+            result[key]=deepClone(target[key])
+        }
+
+        return result
+    }
+
+    const person={
+        name:"mike",
+        age:18,
+        lovers:["reachel","mimi","kiki","kivi"]
+    };
+
+    const newPerson = deepClone(person);
+    newPerson.lovers.push("hot girl");
+    console.log(newPerson,person);
+</script>
+</body>
+</html>

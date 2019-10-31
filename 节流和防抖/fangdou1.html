@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button>button</button>
+<script>
+
+    var btn =  document.querySelector("button");
+    function debounce(fun,time) {
+        var timer = null;
+        return function () {
+            var context=this;
+            var args=arguments;
+            console.log(arguments);
+            clearTimeout(timer);
+            setTimeout(function () {
+                fun.apply(context,args)
+            },time)
+        }
+    }
+    
+    btn.onclick=debounce(function (e) {
+        console.log(this);
+        console.log(e);
+        console.log('防抖函数执行了');
+    },900)
+    
+</script>
+</body>
+</html>

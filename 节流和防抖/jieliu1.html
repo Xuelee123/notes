@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    div{
+        height:2000px;
+    }
+</style>
+<body>
+    <div>
+
+        <button id="btn">AAA</button>
+
+    </div>
+<script>
+
+
+    var btn= document.querySelector("#btn");
+    var throttle = function (fun,delay) {
+        var prev = Date.now();
+        return function () {
+            var now = Date.now();
+            if(now-prev>=delay){
+                fun.apply(this,arguments);
+                prev = Date.now();
+            }
+        }
+    };
+
+    btn.onclick = throttle(function (e) {
+        console.log(e);
+    },2000)
+</script>
+</body>
+</html>

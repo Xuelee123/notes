@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let arr;
+    let str = JSON.stringify(arr);
+    str = str.replace(/(\[|\])/g,'');
+    str = '['+str+']';
+    const newArr = JSON.parse(str)
+</script>
+
+</body>
+</html>

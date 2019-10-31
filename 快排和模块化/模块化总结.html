@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>模块化总结</title>
+</head>
+<body>
+<script>
+
+
+            /**commonjs主要用于服务器端 nodejs
+             * 语法：
+             *  一般模块化有一个主文件/入口文件： index.js  app.js  main.js
+             所有其他模块要通过入口文件来加载
+             *
+             * 引入
+             * require(模块路径)
+             * 自定义模块路径必须以 ./ ../ 开头, 其他模块(nodejs核心模块和第三方模块)直接写模块名称
+             * 模块路可以省略 .js .json等文件后缀名
+
+             暴露
+             * module.exports = xxx；一个
+             * module.exports.xxx = xxx；一个
+             * module.exports.xxx = {}；多个
+
+             * exports.xxx = xxx
+             *
+
+
+            /**
+             * ## 3、 谈谈ES6模块化规范
+             * 主要用于浏览器端
+             * 语法：
+             * 引入
+             * 引入默认暴露的内容  import Person from '模块路径'
+             * 引入统一暴露的内容 import {} from '模块路径' (当模块暴露是统一、分别暴露)
+             * 模块路径遵循commonjs规范，（因为后面还是会被编译成commonjs）
+
+              暴露
+             * 默认暴露  export default xxx
+             * 统一暴露: 后面跟对象：  export { xxx, yyyy }
+             * 分别暴露: 后面跟着完整定义  export const name = 'jack'
+             * 注意：默认是所有平台都不能解析ES6模块化语法。所以需要进行语法转换
+
+             * babel
+             * 将ES6模块化语法转化为commonjs模块化语法
+             * 将ES6其他（高级）语法转化ES5以下低级语法
+             * browserify
+             * 将commonjs模块化转换成浏览器能识别的语法
+
+             */
+
+
+</script>
+</body>
+</html>

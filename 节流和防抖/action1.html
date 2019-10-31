@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            height:2000px;
+        }
+    </style>
+</head>
+<body>
+<div></div>
+<script>
+ var throttle = function (fn,delay) {
+     var prev = Date.now();
+     return function () {
+         var now = Date.now();
+         if(now-prev>=delay){
+             fn(this,arguments);
+             prev = now;
+         }
+     }
+ }
+  
+  document.onscroll = throttle(function () {console.log("nihao");},500)
+</script>
+</body>
+</html>
